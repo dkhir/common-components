@@ -5,39 +5,57 @@
  * It contains typing information for all components that exist in this project.
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
-import { WebSocialShareInput } from "./types/web-social-share/web-social-share-input";
 export namespace Components {
-    interface WebSocialShare {
-        "share": WebSocialShareInput;
-        "show": boolean;
+    interface MyComponent {
+        /**
+          * The first name
+         */
+        "first": string;
+        /**
+          * The last name
+         */
+        "last": string;
+        /**
+          * The middle name
+         */
+        "middle": string;
     }
 }
 declare global {
-    interface HTMLWebSocialShareElement extends Components.WebSocialShare, HTMLStencilElement {
+    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
-    var HTMLWebSocialShareElement: {
-        prototype: HTMLWebSocialShareElement;
-        new (): HTMLWebSocialShareElement;
+    var HTMLMyComponentElement: {
+        prototype: HTMLMyComponentElement;
+        new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
-        "web-social-share": HTMLWebSocialShareElement;
+        "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
-    interface WebSocialShare {
-        "onClosed"?: (event: CustomEvent<any>) => void;
-        "share"?: WebSocialShareInput;
-        "show"?: boolean;
+    interface MyComponent {
+        /**
+          * The first name
+         */
+        "first"?: string;
+        /**
+          * The last name
+         */
+        "last"?: string;
+        /**
+          * The middle name
+         */
+        "middle"?: string;
     }
     interface IntrinsicElements {
-        "web-social-share": WebSocialShare;
+        "my-component": MyComponent;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "web-social-share": LocalJSX.WebSocialShare & JSXBase.HTMLAttributes<HTMLWebSocialShareElement>;
+            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }
 }

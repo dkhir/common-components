@@ -1,25 +1,21 @@
 import { Config } from '@stencil/core';
 
-import { sass } from '@stencil/sass';
-import { postcss } from '@stencil/postcss';
-import autoprefixer from 'autoprefixer';
-
 export const config: Config = {
-  namespace: 'websocialshare',
-  outputTargets:[
+  namespace: 'stencil-starter-project-name',
+  outputTargets: [
     {
-      type: 'dist'
+      type: 'dist',
+      esmLoaderPath: '../loader',
+    },
+    {
+      type: 'dist-custom-elements-bundle',
+    },
+    {
+      type: 'docs-readme',
     },
     {
       type: 'www',
-      baseUrl: 'http://websocialshare.com',
-      serviceWorker: null
-    }
+      serviceWorker: null, // disable service workers
+    },
   ],
-  plugins: [
-    sass(),
-    postcss({
-      plugins: [autoprefixer()]
-    })
-  ]
 };
